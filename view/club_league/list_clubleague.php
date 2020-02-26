@@ -1,5 +1,5 @@
 <h2>List Club-League</h2>
-<a href="view_clubleague.php?page=add"><button type="button" class="btn btn-success">Add new club</button></a>
+<a href="view_clubleague.php?page=add"><button type="button" class="btn btn-success">Add new club-league</button></a>
 <br><br>
 <br>
 <div class="container">

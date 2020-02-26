@@ -5,7 +5,7 @@ namespace Model;
 use PDO;
 use PDOException;
 
-class CupDB
+class PositionDB
 {
     public $connection;
 
@@ -16,8 +16,9 @@ class CupDB
 
     public function create($cup)
     {
-        $sql = "INSERT INTO cup(id_cup, name_cup, image) VALUES ('$cup->id', '$cup->name', '$cup->image')";
-        $this->connection->exec($sql);
+        $sql = "INSERT INTO position (id_position, name_position, image, flag) VALUES ('$cup->id', '$cup->name', '$cup->image', 0)";
+        $statement = $this->connection->prepare($sql);
+        return $statement->execute();
     }
 
     // update
@@ -25,11 +26,11 @@ class CupDB
     {
         if ($cup->image != '') {
             $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-            $sql = "UPDATE cup SET name_cup = '$cup->name', image = '$image' WHERE id_cup = $id";
+            $sql = "UPDATE position SET name_position = '$cup->name', image = '$image' WHERE id_position = $id";
             $statement = $this->connection->prepare($sql);
             $statement->execute();
         } else {
-            $sql = "UPDATE cup SET name_cup = '$cup->name' WHERE id_cup = $id";
+            $sql = "UPDATE position SET name_position = '$cup->name' WHERE id_position = $id";
             $statement = $this->connection->prepare($sql);
             $statement->execute();
         }
@@ -37,14 +38,14 @@ class CupDB
 
     public function getAll()
     {
-        $sql = "SELECT * FROM cup WHERE flag = false";
+        $sql = "SELECT * FROM position WHERE flag = false";
         $statement = $this->connection->prepare($sql);
         $statement->execute();
         $result = $statement->fetchAll();
         $cups = [];
         foreach ($result as $row) {
-            $cup = new cup($row['id_cup'], $row['name_cup'], $row['image']);
-            $cup->id = $row['id_cup'];
+            $cup = new Position($row['id_position'], $row['name_position'], $row['image']);
+            $cup->id = $row['id_position'];
             $cups[] = $cup;
         }
         return $cups;
@@ -52,21 +53,21 @@ class CupDB
 
     public function get($id)
     {
-        $sql = "SELECT * FROM cup WHERE id_cup = ?";
+        $sql = "SELECT * FROM position WHERE id_position = ?";
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(1, $id);
         $statement->execute();
         $row = $statement->fetch();
-        $cup = new cup($row['id_cup'], $row['name_cup'], $row['image']);
-        $cup->id = $row['id_cup'];
+        $cup = new Position($row['id_position'], $row['name_position'], $row['image']);
+        $cup->id = $row['id_position'];
         return $cup;
     }
 
 
     public function delete($id)
     {
-        $sql = "UPDATE cup 
-        SET flag = true WHERE id_cup = ?";
+        $sql = "UPDATE position 
+        SET flag = true WHERE id_position = ?";
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(1, $id);
         return $statement->execute();
@@ -74,14 +75,14 @@ class CupDB
 
     public function showFileDeleted()
     {
-        $sql = "SELECT * FROM cup WHERE flag = true";
+        $sql = "SELECT * FROM position WHERE flag = true";
         $statement = $this->connection->prepare($sql);
         $statement->execute();
         $result = $statement->fetchAll();
         $cups = [];
         foreach ($result as $row) {
-            $cup = new cup($row['id_cup'], $row['name_cup'], $row['image']);
-            $cup->id = $row['id_cup'];
+            $cup = new Position($row['id_position'], $row['name_position'], $row['image']);
+            $cup->id = $row['id_position'];
             $cups[] = $cup;
         }
         return $cups;
@@ -89,8 +90,8 @@ class CupDB
 
     public function backUpFileDeleted($id)
     {
-        $sql = "UPDATE cup 
-        SET flag = false WHERE id_cup = ?";
+        $sql = "UPDATE position 
+        SET flag = false WHERE id_position = ?";
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(1, $id);
         return $statement->execute();
@@ -98,7 +99,7 @@ class CupDB
 
     public function deleteForever($id)
     {
-        $sql = "DELETE FROM cup WHERE id_cup = ?";
+        $sql = "DELETE FROM position WHERE id_position = ?";
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(1, $id);
         return $statement->execute();

@@ -32,6 +32,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/view/national_team/view_national_team.php">National Team</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/view/position/view_position.php">Position</a>
+            </li>
             <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">

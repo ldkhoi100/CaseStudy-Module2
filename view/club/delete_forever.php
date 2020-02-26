@@ -7,7 +7,6 @@
 <h3><u>ID club</u>: <?= isset($club->id) ? $club->id : ''; ?> <br>
     <u>Name club</u>: <?= isset($club->name) ? $club->name : ''; ?>
 </h3> <br>
-
 <form action="view_club.php?page=deleteForever" method="post">
     <input type="hidden" name="id" value="<?php echo $club->id; ?>" />
     <div class="form-group">
