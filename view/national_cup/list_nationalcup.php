@@ -1,7 +1,6 @@
 <h2>List National-Cup</h2>
 <a href="view_nationalcup.php?page=add"><button type="button" class="btn btn-success">Add new National-Cup</button></a>
 <br><br>
-<br>
 <div class="container">
     <table class="table table-hover" id="employee_data">
         <thead>

@@ -1,4 +1,4 @@
-<h1 style='color:red;'>Do you want delete player <?= isset($clubleague->idclub) ? $clubleague->idclub : ''; ?> and
+<h1 style='color:red;'>Do you want delete id player <?= isset($clubleague->idclub) ? $clubleague->idclub : ''; ?> and id
     position <?= isset($clubleague->idleague) ? $clubleague->idleague : ''; ?>?
 </h1> <br>
 

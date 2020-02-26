@@ -2,7 +2,6 @@
 <a href="view_playerposition.php?page=add"><button type="button" class="btn btn-success">Add new
         Player-Position</button></a>
 <br><br>
-<br>
 <div class="container">
     <table class="table table-hover" id="employee_data">
         <thead>

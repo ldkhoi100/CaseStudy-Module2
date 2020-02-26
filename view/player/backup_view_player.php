@@ -11,7 +11,7 @@
             <th>Height</th>
             <th>Weight</th>
             <th>Clothers</th>
-            <th>Name player</th>
+            <th>Name club</th>
             <th>Name nation</th>
             <th>Image</th>
             <th colspan="2" style="text-align: center">Option</th>

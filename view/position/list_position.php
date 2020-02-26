@@ -8,7 +8,7 @@
         <tr class="table-info">
             <th>Serial</th>
             <th>ID</th>
-            <th>Name position</th>
+            <th>Name Position</th>
             <th>Image</th>
             <th colspan="2">Option</th>
         </tr>

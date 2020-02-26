@@ -8,7 +8,7 @@
         <tr class="table-info">
             <th>Serial</th>
             <th>ID</th>
-            <th>Name national_team</th>
+            <th>Name National Team</th>
             <th>Continent</th>
             <th>Ranking</th>
             <th>Coach Name</th>

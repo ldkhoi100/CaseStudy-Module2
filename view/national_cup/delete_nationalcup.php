@@ -1,5 +1,5 @@
-<h1 style='color:red;'>Do you want delete team nation <?= isset($clubleague->idclub) ? $clubleague->idclub : ''; ?> and
-    cup <?= isset($clubleague->idleague) ? $clubleague->idleague : ''; ?>?
+<h1 style='color:red;'>Do you want delete id team nation <?= isset($clubleague->idclub) ? $clubleague->idclub : ''; ?>
+    and id cup <?= isset($clubleague->idleague) ? $clubleague->idleague : ''; ?>?
 </h1> <br>
 
 <div class="alert alert-danger">
