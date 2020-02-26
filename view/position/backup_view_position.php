@@ -7,7 +7,7 @@
             <th>ID</th>
             <th>Name Position</th>
             <th>Image</th>
-            <th></th>
+            <th>Option</th>
             <th></th>
         </tr>
     </thead>

@@ -11,7 +11,7 @@
             <th>Stadium</th>
             <th>Coach Name</th>
             <th>Image</th>
-            <th></th>
+            <th>Option</th>
             <th></th>
         </tr>
     </thead>

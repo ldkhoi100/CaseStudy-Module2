@@ -35,6 +35,15 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/view/position/view_position.php">Position</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/view/national_cup/view_nationalcup.php">National-Cup</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/view/player_position/view_playerposition.php">Player-Position</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/view/player/view_player.php">Player</a>
+            </li>
             <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">

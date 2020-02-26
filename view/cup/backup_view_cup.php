@@ -7,7 +7,7 @@
             <th>ID</th>
             <th>Name Cup</th>
             <th>Image</th>
-            <th></th>
+            <th>Option</th>
             <th></th>
         </tr>
     </thead>
