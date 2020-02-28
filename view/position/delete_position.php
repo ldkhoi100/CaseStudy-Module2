@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <h1 style='color:red;'>Do you want delete position <?= isset($cup->name) ? $cup->name : ''; ?>?</h1> <br>
 
 <div class="alert alert-danger">
@@ -16,3 +19,8 @@
         <a class="btn btn-info" href="view_position.php" style="margin-left: 5px;">Cancel</a>
     </div>
 </form>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

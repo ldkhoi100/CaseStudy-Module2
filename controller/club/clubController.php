@@ -28,9 +28,17 @@ class ClubController
             $stadium = $_POST['stadium'];
             $coach = $_POST['coach_name'];
             $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-            $club = new Club($id, $name, $stadium, $coach, $image);
-            $this->clubDB->create($club);
-            $message = 'New club created';
+
+            $array = $this->clubDB->isExistClubId($id);
+            if ($array == true) {
+                $club = new Club($id, $name, $stadium, $coach, $image);
+                $this->clubDB->create($club);
+                $error = 'hello';
+            } else {
+                $club = new Club($id, $name, $stadium, $coach, $image);
+                $this->clubDB->create($club);
+                $message = 'New club created';
+            }
             include 'add_club.php';
         }
     }

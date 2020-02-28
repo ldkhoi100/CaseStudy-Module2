@@ -27,9 +27,16 @@ class CupController
             $name = $_POST['name_cup'];
             /** image */
             $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-            $cup = new Cup($id, $name, $image);
-            $this->cupDB->create($cup);
-            $message = 'New cup created';
+            $array = $this->cupDB->isExistCupId($id);
+            if ($array == true) {
+                $cup = new Cup($id, $name, $image);
+                $this->cupDB->create($cup);
+                $error = 'fail';
+            } else {
+                $cup = new Cup($id, $name, $image);
+                $this->cupDB->create($cup);
+                $message = 'New cup created';
+            }
             include 'add_cup.php';
         }
     }

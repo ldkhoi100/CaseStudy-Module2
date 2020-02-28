@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <?php include '../../model/db/connect.php' ?>
 
 <h2>Update Club Relationship Beetween Club And League</h2>
@@ -8,32 +11,32 @@
         <label>ID Club</label>
         <select class="form-control" name="idclub">
             <?php
-            $sql = "SELECT * FROM club";
-            $result = $connect->query($sql);
-            foreach ($result as $row) {
-                if ($row['id_club'] === $clubleague->idclub) {
-                    echo "<option value=" . $row['id_club'] . " selected>" . $row['id_club'] . " - " . $row['name_club'] . "</option>";
-                } else {
-                    echo "<option value=" . $row['id_club'] . ">" . $row['id_club'] . " - " . $row['name_club'] . "</option>";
+                $sql = "SELECT * FROM club";
+                $result = $connect->query($sql);
+                foreach ($result as $row) {
+                    if ($row['id_club'] === $clubleague->idclub) {
+                        echo "<option value=" . $row['id_club'] . " selected>" . $row['id_club'] . " - " . $row['name_club'] . "</option>";
+                    } else {
+                        echo "<option value=" . $row['id_club'] . ">" . $row['id_club'] . " - " . $row['name_club'] . "</option>";
+                    }
                 }
-            }
-            ?>
+                ?>
         </select>
     </div>
     <div class="form-group">
         <label>ID League</label>
         <select class="form-control" name="idleague">
             <?php
-            $sql = "SELECT * FROM league";
-            $result = $connect->query($sql);
-            foreach ($result as $row) {
-                if ($row['id_league'] === $clubleague->idleague) {
-                    echo "<option value=" . $row['id_league'] . " selected>" . $row['id_league'] . " - " . $row['name_league'] . "</option>";
-                } else {
-                    echo "<option value=" . $row['id_league'] . ">" . $row['id_league'] . " - " . $row['name_league'] . "</option>";
+                $sql = "SELECT * FROM league";
+                $result = $connect->query($sql);
+                foreach ($result as $row) {
+                    if ($row['id_league'] === $clubleague->idleague) {
+                        echo "<option value=" . $row['id_league'] . " selected>" . $row['id_league'] . " - " . $row['name_league'] . "</option>";
+                    } else {
+                        echo "<option value=" . $row['id_league'] . ">" . $row['id_league'] . " - " . $row['name_league'] . "</option>";
+                    }
                 }
-            }
-            ?>
+                ?>
         </select>
     </div>
     <div class="form-group">
@@ -41,3 +44,8 @@
         <a href="view_clubleague.php" class="btn btn-secondary">Cancel</a>
     </div>
 </form>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

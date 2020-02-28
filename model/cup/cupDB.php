@@ -14,6 +14,16 @@ class CupDB
         $this->connection = $connection;
     }
 
+    public function isExistCupId($id)
+    {
+        $sql = "SELECT id_cup FROM cup WHERE id_cup = ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(1, $id);
+        $statement->execute();
+        $result = $statement->fetch();
+        return $result > 0;
+    }
+
     public function create($cup)
     {
         $sql = "INSERT INTO cup(id_cup, name_cup, image) VALUES ('$cup->id', '$cup->name', '$cup->image')";

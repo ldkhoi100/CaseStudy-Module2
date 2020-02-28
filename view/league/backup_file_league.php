@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <h1 style='color:red;'>Do you want back up league <?= isset($league->name) ? $league->name : ''; ?>?</h1> <br>
 
 <div class="alert alert-warning">
@@ -15,3 +18,8 @@
         <a class="btn btn-info" href="view_league.php?page=backup_league" style="margin-left: 5px;">Cancel</a>
     </div>
 </form>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

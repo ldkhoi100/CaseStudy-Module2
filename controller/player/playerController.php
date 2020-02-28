@@ -33,9 +33,17 @@ class PlayerController
             $idclub = $_POST['id_club'];
             $idnation = $_POST['id_nation'];
             $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-            $player = new Player($id, $firstname, $lastname, $age, $height, $weight, $clothersnumber, $idclub, $idnation, null, null, $image);
-            $this->playerDB->create($player);
-            $message = 'New player created';
+
+            $array = $this->playerDB->isExistPlayerId($id);
+            if ($array == true) {
+                $player = new Player($id, $firstname, $lastname, $age, $height, $weight, $clothersnumber, $idclub, $idnation, null, null, $image);
+                $this->playerDB->create($player);
+                $error = 'fail';
+            } else {
+                $player = new Player($id, $firstname, $lastname, $age, $height, $weight, $clothersnumber, $idclub, $idnation, null, null, $image);
+                $this->playerDB->create($player);
+                $message = 'New player created';
+            }
             include 'add_player.php';
         }
     }

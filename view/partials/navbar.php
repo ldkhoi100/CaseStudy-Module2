@@ -3,8 +3,8 @@
 
     <!-- logo -->
     <a class="navbar-brand" href="/index.php">
-        <img src="https://pngimage.net/wp-content/uploads/2018/06/football-image-png-3.png" alt="logo"
-            style="width:40px;"></a>
+        <img src="https://media0.giphy.com/media/3o7aDfC1PaFxz9TO8g/giphy.webp?cid=790b7611b1ee944fde7c69804ff39f5365f2ffb4861830ca&rid=giphy.webp"
+            alt="logo" style="width:40px;"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -61,9 +61,20 @@
     <!-- navbar right -->
     <div class="nav-item">
         <ul class="navbar-nav mr-auto">
+
+            <!-- Check, if logined, Go to dropdown user, else need to login -->
+            <li class="nav-item active">
+                <?= isset($_SESSION["username"]) ? "" : "<a class='btn btn-warning btn-sm' href = '/view/login/login.php' style = 'margin-right: 15px;'>Sign in</a>"; ?>
+            </li>
+
+            <!-- Check if not yet login, hidden this type -->
+            <?php if (isset($_SESSION["username"])) : ?>
+
             <li class="nav-item dropdown active" style="margin-right: 10px">
                 <a class=" nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    <?php echo htmlspecialchars($_SESSION["username"]); ?>
+                    <?php //echo htmlspecialchars($_SESSION["username"]); 
+                        ?>
+                    <?= isset($_SESSION["username"]) ? htmlspecialchars($_SESSION["username"]) : ""; ?>
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/view/login/welcome.php">Detail</a>
@@ -72,6 +83,10 @@
                     <a href="/view/login/logout.php" class="dropdown-item">Sign Out</a>
                 </div>
             </li>
+
+            <?php endif; ?>
+
+            <!-- Search rows for table -->
             <li>
                 <div class="md-form mt-0">
                     <input class="form-control" type="text" placeholder="Search" aria-label="Search" id="tableSearch">

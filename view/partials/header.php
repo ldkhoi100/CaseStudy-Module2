@@ -9,5 +9,5 @@
     <title>Manager Player Football</title>
 </head>
 
-<body>
+<body onload="startTime()">
     <?php include 'navbar.php'; ?>

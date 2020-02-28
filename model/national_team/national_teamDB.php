@@ -14,6 +14,16 @@ class NationalteamDB
         $this->connection = $connection;
     }
 
+    public function isExistNationalTeamId($id)
+    {
+        $sql = "SELECT id_nation FROM national_team WHERE id_nation = ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(1, $id);
+        $statement->execute();
+        $result = $statement->fetch();
+        return $result > 0;
+    }
+
     public function create($national_team)
     {
         $sql = "INSERT INTO national_team(id_nation, name_nation, continent, ranking, coach_name, image) VALUES ('$national_team->id', '$national_team->name', '$national_team->continent', '$national_team->ranking', '$national_team->coach', '$national_team->image')";

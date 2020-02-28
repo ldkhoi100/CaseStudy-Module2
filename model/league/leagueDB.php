@@ -14,6 +14,16 @@ class LeagueDB
         $this->connection = $connection;
     }
 
+    public function isExistLeagueId($id)
+    {
+        $sql = "SELECT id_league FROM league WHERE id_league = ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(1, $id);
+        $statement->execute();
+        $result = $statement->fetch();
+        return $result > 0;
+    }
+
     public function create($league)
     {
         $sql = "INSERT INTO league(id_league, name_league, image) VALUES ('$league->id', '$league->name', '$league->image')";

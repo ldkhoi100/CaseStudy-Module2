@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <div class="col-12 col-md-12">
     <div class="row">
         <div class="col-12">
@@ -6,13 +9,13 @@
         <div class="col-12">
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label>ID National team</label>
+                    <label>ID National Team</label>
                     <!-- Max length number is 11 -->
                     <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;"
                         class="form-control" name="id_nation" placeholder="Number, Max-length: 11" required>
                 </div>
                 <div class="form-group">
-                    <label>Name National team</label>
+                    <label>Name National Team</label>
                     <input type="text" class="form-control" name="name_nation" placeholder="" required>
                 </div>
                 <div class="form-group">
@@ -40,9 +43,17 @@
 </div>
 <br>
 <?php
-if (isset($message)) {
-    echo "<div class='alert alert-success'>
+    if (isset($message)) {
+        echo "<div class='alert alert-success'>
     <strong>Success</strong>, national team " . $national_team->name . " is created
     </div>";
-}
-?>
+    }
+    if (isset($error)) {
+        echo "<div class='alert alert-danger'><strong>Fail</strong>, national team Id <strong>" . $national_team->id . "</strong> is already exist!</div>";
+    }
+    ?>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

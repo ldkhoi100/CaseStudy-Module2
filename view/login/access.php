@@ -50,3 +50,9 @@ function accessAdminView()
         exit;
     }
 }
+
+// Access admin
+function admin()
+{
+    return $_SESSION['username'] == 'admin';
+}

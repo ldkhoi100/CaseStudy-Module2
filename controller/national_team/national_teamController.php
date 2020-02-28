@@ -29,9 +29,17 @@ class NationalteamController
             $ranking = $_POST['ranking'];
             $coach_name = $_POST['coach_name'];
             $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-            $national_team = new Nationalteam($id, $name, $continent, $ranking, $coach_name, $image);
-            $this->national_teamDB->create($national_team);
-            $message = 'New national team created';
+
+            $array = $this->national_teamDB->isExistNationalTeamId($id);
+            if ($array == true) {
+                $national_team = new Nationalteam($id, $name, $continent, $ranking, $coach_name, $image);
+                $this->national_teamDB->create($national_team);
+                $error = 'fail';
+            } else {
+                $national_team = new Nationalteam($id, $name, $continent, $ranking, $coach_name, $image);
+                $this->national_teamDB->create($national_team);
+                $message = 'New national team created';
+            }
             include 'add_national_team.php';
         }
     }
@@ -92,7 +100,7 @@ class NationalteamController
             $message = "Delete Success";
             echo '<meta http-equiv="refresh" content="2;url=view_national_team.php">';
             echo "  <div class='alert alert-success'>
-                        <strong>Success</strong>, this national_team is deleted
+                        <strong>Success</strong>, this national team is deleted
                     </div>";
             echo "<p> Go home will start in <span id='ountdowntimer'>2 </span> Seconds <br><br>";
             echo "<a href='view_national_team.php' class='btn btn-info'>Go to list national_team</a>";
@@ -111,10 +119,10 @@ class NationalteamController
             $message = "Delete Success";
             echo '<meta http-equiv="refresh" content="2;url=view_national_team.php?page=backup_national_team">';
             echo "  <div class='alert alert-success'>
-                        <strong>Success</strong>, this national_team is deleted forever
+                        <strong>Success</strong>, this national team is deleted forever!
                     </div>";
             echo "<p> Go home will start in <span id='ountdowntimer'>2 </span> Seconds <br><br>";
-            echo "<a href='view_national_team.php' class='btn btn-info'>Go to list national_team</a>";
+            echo "<a href='view_national_team.php' class='btn btn-info'>Go to list national team</a>";
         }
     }
 }

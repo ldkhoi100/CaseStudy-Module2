@@ -14,6 +14,16 @@ class PlayerDB
         $this->connection = $connection;
     }
 
+    public function isExistPlayerId($id)
+    {
+        $sql = "SELECT id_player FROM player WHERE id_player = ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(1, $id);
+        $statement->execute();
+        $result = $statement->fetch();
+        return $result > 0;
+    }
+
     public function create($player)
     {
         $sql = "INSERT INTO player (id_player, first_name, last_name, age, height, weight, clothers_number, id_club, id_nation, image, flag) VALUES ('$player->id', '$player->firstname', '$player->lastname', '$player->age', '$player->height', '$player->weight', '$player->clothersnumber', '$player->idclub', $player->idnation, '$player->image', '0')";
@@ -31,7 +41,7 @@ class PlayerDB
 
             . "INNER JOIN national_team ON national_team.id_nation = player.id_nation\n"
 
-            . "WHERE player.flag = false";
+            . "WHERE player.flag = false ORDER BY player.id_player";
 
         $statement = $this->connection->prepare($sql);
         $statement->execute();
@@ -86,7 +96,7 @@ class PlayerDB
 
             . "INNER JOIN national_team ON national_team.id_nation = player.id_nation\n"
 
-            . "WHERE player.flag = true";
+            . "WHERE player.flag = true ORDER BY player.id_player";
 
         $statement = $this->connection->prepare($sql);
         $statement->execute();

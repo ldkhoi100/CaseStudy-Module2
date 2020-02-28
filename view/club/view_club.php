@@ -1,8 +1,8 @@
-<!-- login required -->
+<!-- acces login -->
 <?php include '../login/access.php';
-echo accessView();
+session_start();
+error_reporting(0);
 ?>
-
 <?php
 require "../../model/core/DBConnection.php";
 require "../../model/club/club.php";

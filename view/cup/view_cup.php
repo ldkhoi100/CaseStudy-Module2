@@ -1,6 +1,7 @@
 <!-- login required -->
 <?php include '../login/access.php';
-echo accessView();
+session_start();
+error_reporting(0);
 ?>
 <?php
 require "../../model/core/DBConnection.php";

@@ -7,7 +7,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     exit;
 }
 // Include connect file
-require_once "connect.php";
+require_once "../../model/db/connect.php";
 include '../../controller/login/login.php';
 ?>
 
@@ -39,6 +39,7 @@ include '../../controller/login/login.php';
         <div class="input-group">
             <!-- <button type="submit" class="btn" name="login_btn">Login</button> -->
             <button type="submit" class="btn" name="login_btn">Login</button>
+            <a href="/index.php"><button type="button" class="btn" style="background-color: red ">Home</button></a>
         </div>
         <p>
             Not yet a member? <a href="register.php">Sign up</a>

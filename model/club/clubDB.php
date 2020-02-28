@@ -14,6 +14,16 @@ class ClubDB
         $this->connection = $connection;
     }
 
+    public function isExistClubId($id)
+    {
+        $sql = "SELECT id_club FROM club WHERE id_club = ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(1, $id);
+        $statement->execute();
+        $result = $statement->fetch();
+        return $result > 0;
+    }
+
     public function create($club)
     {
         $sql = "INSERT INTO club(id_club, name_club, stadium, coach_name, image) VALUES ('$club->id', '$club->name', '$club->stadium', '$club->coach', '$club->image')";

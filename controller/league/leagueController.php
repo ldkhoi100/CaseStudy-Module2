@@ -26,9 +26,17 @@ class LeagueController
             $id = $_POST['id_league'];
             $name = $_POST['name_league'];
             $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-            $league = new League($id, $name, $image);
-            $this->leagueDB->create($league);
-            $message = 'New league created';
+
+            $array = $this->leagueDB->isExistLeagueId($id);
+            if ($array == true) {
+                $league = new League($id, $name, $image);
+                $this->leagueDB->create($league);
+                $error = 'fail';
+            } else {
+                $league = new League($id, $name, $image);
+                $this->leagueDB->create($league);
+                $message = 'New league created';
+            }
             include 'add_league.php';
         }
     }

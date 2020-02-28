@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <?php include '../../model/db/connect.php'; ?>
 
 <div class="col-12 col-md-12">
@@ -47,12 +50,12 @@
                     <label>ID Club</label>
                     <select class="form-control" name="id_club">
                         <?php
-                        $sql = "SELECT * FROM club";
-                        $result = $connect->query($sql);
-                        foreach ($result as $row) {
-                            echo "<option value=" . $row['id_club'] . ">" . $row['id_club'] . " - " . $row['name_club'] . "</option>";
-                        }
-                        ?>
+                            $sql = "SELECT * FROM club";
+                            $result = $connect->query($sql);
+                            foreach ($result as $row) {
+                                echo "<option value=" . $row['id_club'] . ">" . $row['id_club'] . " - " . $row['name_club'] . "</option>";
+                            }
+                            ?>
                     </select>
                 </div>
 
@@ -61,12 +64,12 @@
                     <label>ID National team</label>
                     <select class="form-control" name="id_nation">
                         <?php
-                        $sql = "SELECT * FROM national_team";
-                        $result = $connect->query($sql);
-                        foreach ($result as $row) {
-                            echo "<option value=" . $row['id_nation'] . ">" . $row['id_nation'] . " - " . $row['name_nation'] . "</option>";
-                        }
-                        ?>
+                            $sql = "SELECT * FROM national_team";
+                            $result = $connect->query($sql);
+                            foreach ($result as $row) {
+                                echo "<option value=" . $row['id_nation'] . ">" . $row['id_nation'] . " - " . $row['name_nation'] . "</option>";
+                            }
+                            ?>
                     </select>
                 </div>
 
@@ -82,9 +85,17 @@
 </div>
 <br>
 <?php
-if (isset($message)) {
-    echo "<div class='alert alert-success'>
+    if (isset($message)) {
+        echo "<div class='alert alert-success'>
     <strong>Success</strong>, player " . $player->firstname . " " . $player->lastname . " is created
     </div>";
-}
-?>
+    }
+    if (isset($error)) {
+        echo "<div class='alert alert-danger'><strong>Fail</strong>, player Id <strong>" . $player->id . "</strong> is already exist!</div>";
+    }
+    ?>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

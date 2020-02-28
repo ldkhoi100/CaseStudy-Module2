@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <h1 style='color:red;'>Do you want delete id team nation <?= isset($clubleague->idclub) ? $clubleague->idclub : ''; ?>
     and id cup <?= isset($clubleague->idleague) ? $clubleague->idleague : ''; ?>?
 </h1> <br>
@@ -18,3 +21,8 @@
         <a class="btn btn-info" href="view_nationalcup.php" style="margin-left: 5px;">Cancel</a>
     </div>
 </form>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

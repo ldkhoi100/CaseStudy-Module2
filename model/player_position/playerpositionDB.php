@@ -40,7 +40,7 @@ class PlayerpositionDB
 
     public function getAll()
     {
-        $sql = "SELECT player.id_player, player.first_name, position.id_position, position.name_position\n"
+        $sql = "SELECT player.id_player, player.last_name, position.id_position, position.name_position\n"
 
             . "FROM player_position \n"
 
@@ -55,7 +55,7 @@ class PlayerpositionDB
         $result = $statement->fetchAll();
         $clubleagues = [];
         foreach ($result as $row) {
-            $clubleague = new Playerposition($row['id_player'], $row['id_position'], $row['first_name'], $row['name_position']);
+            $clubleague = new Playerposition($row['id_player'], $row['id_position'], $row['last_name'], $row['name_position']);
             $clubleagues[] = $clubleague;
         }
         return $clubleagues;

@@ -1,15 +1,14 @@
 <?php
 // Initialize the session
 session_start();
-
-// Check if the user is logged in, if not then redirect to login page
+// Check if the user is logged in, if not then redirect to index page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
+    header("location: ../../index.php");
     exit;
 }
 
-// Include config file
-require_once "connect.php";
+// Include connect file
+require_once "../../model/db/connect.php";
 include '../../controller/login/reset-password.php';
 ?>
 
@@ -24,9 +23,11 @@ include '../../controller/login/reset-password.php';
     <?php include '../partials/header.php' ?>
     <!-- bootstrap -->
     <?php include '../../public/bootstrap/bootstrap.php'; ?>
+    <!-- css view -->
+    <link rel="stylesheet" href="/public/css/view.css">
     <style type="text/css">
     body {
-        font-size: 1.65em;
+        font-size: 1.6em;
     }
 
     #wrapper {
@@ -45,7 +46,7 @@ include '../../controller/login/reset-password.php';
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper" id="resetpassword">
         <div class="center">
             <h2>Reset Password</h2>
             <p>Please fill out this form to reset your password.</p>

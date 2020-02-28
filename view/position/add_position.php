@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <div class="col-12 col-md-12">
     <div class="row">
         <div class="col-12">
@@ -15,11 +18,7 @@
                     <label>Name Position</label>
                     <input type="text" class="form-control" name="name_position" placeholder="" required>
                 </div>
-                <div class="form-group">
-                    <label>Image</label>
-                    <input type="file" class="form-control" name="image" id="image"
-                        value="<?= 'data:image;base64,' . base64_encode($cup->image) ?>" placeholder="">
-                </div>
+
                 <button type="submit" class="btn btn-primary" name="insert" id="insert">Add New</button>
                 <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Cancle</button>
             </form>
@@ -28,9 +27,17 @@
 </div>
 <br>
 <?php
-if (isset($message)) {
-    echo "<div class='alert alert-success'>
-    <strong>Success</strong>, position " . $cup->name . " is created
+    if (isset($message)) {
+        echo "<div class='alert alert-success'><strong>Success</strong>, position <strong>" . $cup->name . "</strong> is created
     </div>";
-}
-?>
+    }
+
+    if (isset($error)) {
+        echo "<div class='alert alert-danger'><strong>Fail</strong>, position Id <strong>" . $cup->id . "</strong> is already exist!</div>";
+    }
+    ?>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

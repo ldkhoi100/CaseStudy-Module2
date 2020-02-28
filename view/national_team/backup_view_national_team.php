@@ -1,4 +1,7 @@
-<h2>List national team deleted</h2>
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
+<h2>List National Team deleted</h2>
 
 <table class="table table-hover">
     <thead>
@@ -23,7 +26,7 @@
             <td><?php echo $national_team->continent ?></td>
             <td><?php echo $national_team->ranking ?></td>
             <td><?php echo $national_team->coach ?></td>
-            <td><img src="<?= 'data:image;base64,' . base64_encode($national_team->image) ?> " width="60px"
+            <td><img class="zoom" src="<?= 'data:image;base64,' . base64_encode($national_team->image) ?> " width="60px"
                     height="60px"> </td>
             </td>
             <td> <a href="view_national_team.php?page=backupfile&id=<?php echo $national_team->id; ?>"
@@ -37,3 +40,8 @@
 </table>
 <!-- Jquery search -->
 <script src="/public/js/search.js"></script>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

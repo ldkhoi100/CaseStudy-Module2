@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <h1 style='color:red;'>Do you want delete national team <?= isset($national_team->name) ? $national_team->name : ''; ?>
     forever??</h1> <br>
 
@@ -17,3 +20,8 @@
             style="margin-left: 5px;">Cancel</a>
     </div>
 </form>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

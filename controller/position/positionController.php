@@ -3,9 +3,12 @@
 namespace Controller;
 
 use function Couchbase\defaultDecoder;
+
+use Exception;
 use Model\Position;
 use Model\PositionDB;
 use Model\DBConnection;
+use PDOException;
 
 class PositionController
 {
@@ -25,11 +28,22 @@ class PositionController
         } else {
             $id = $_POST['id_position'];
             $name = $_POST['name_position'];
-            /** image */
-            $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-            $cup = new Position($id, $name, $image);
-            $this->cupDB->create($cup);
-            $message = 'New position created';
+            $array = $this->cupDB->isExistPositionId($id);
+            if ($array == true) {
+                $error = "hello";
+                $cup = new Position($id, $name);
+                $this->cupDB->create($cup);
+            } else {
+                $message = "created";
+                $cup = new Position($id, $name);
+                $this->cupDB->create($cup);
+            }
+
+            // var_dump($array);
+            // $message = "created";
+            // $cup = new Position($id, $name);
+            // $this->cupDB->create($cup);
+
             include 'add_position.php';
         }
     }
@@ -42,7 +56,7 @@ class PositionController
             include 'edit_position.php';
         } else {
             $id = $_POST['id_position'];
-            $cup = new Position($_POST['id_position'], $_POST['name_position'], addslashes(file_get_contents($_FILES['image']['tmp_name'])));
+            $cup = new Position($_POST['id_position'], $_POST['name_position']);
             $this->cupDB->update($id, $cup);
             echo '<meta http-equiv="refresh" content="0;url=view_position.php">';
         }

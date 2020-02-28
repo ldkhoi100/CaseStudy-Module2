@@ -5,6 +5,11 @@
 
 body {
     font-size: 120%;
+    background-image: url("https://66.media.tumblr.com/6e4a7ea08c88f37b6c12f778d520b64f/tumblr_p51b20K6bp1tjydheo1_500.gifv");
+    /* background-image: url("https://static1.bigstockphoto.com/7/5/6/large1500/65747866.jpg"); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .header {

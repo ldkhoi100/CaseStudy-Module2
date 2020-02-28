@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <h2>Update Nation Team</h2>
 <form method="post" action="view_national_team.php?page=edit" enctype="multipart/form-data">
     <input type="hidden" name="id_nation" value="<?php echo $national_team->id; ?>" />
@@ -31,3 +34,8 @@
         <a href="view_national_team.php" class="btn btn-secondary">Cancel</a>
     </div>
 </form>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

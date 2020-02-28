@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <h2>Update Club</h2>
 <form method="post" action="view_club.php?page=edit" enctype="multipart/form-data">
     <input type="hidden" name="id_club" value="<?php echo $club->id; ?>" />
@@ -26,3 +29,8 @@
         <a href="view_club.php" class="btn btn-secondary">Cancel</a>
     </div>
 </form>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

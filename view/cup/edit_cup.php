@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <div class="col-12 col-md-12">
     <div class="row">
         <div class="col-12">
@@ -26,3 +29,8 @@
         </div>
     </div>
 </div>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

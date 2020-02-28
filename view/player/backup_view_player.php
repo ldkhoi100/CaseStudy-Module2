@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <h2>List Player Deleted</h2>
 
 <table class="table table-hover">
@@ -30,7 +33,8 @@
             <td><?php echo $player->clothersnumber ?></td>
             <td><?php echo $player->nameclub ?></td>
             <td><?php echo $player->namenation ?></td>
-            <td><img src="<?= 'data:image;base64,' . base64_encode($player->image) ?> " width="60px" height="60px">
+            <td><img class="zoom" src="<?= 'data:image;base64,' . base64_encode($player->image) ?> " width="60px"
+                    height="60px">
             </td>
             </td>
             <td> <a href="view_player.php?page=backupfile&id=<?php echo $player->id; ?>"
@@ -44,3 +48,8 @@
 </table>
 <!-- Jquery search -->
 <script src="/public/js/search.js"></script>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>

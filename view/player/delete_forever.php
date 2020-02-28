@@ -1,3 +1,6 @@
+<!-- If admin, you can edit file -->
+<?php if (admin()) : ?>
+
 <h1 style='color:red;'>Do you want delete position <?= isset($player->name) ? $player->name : ''; ?>
     forever??</h1> <br>
 
@@ -17,3 +20,8 @@
         <a class="btn btn-info" href="view_player.php?page=backup_player" style="margin-left: 5px;">Cancel</a>
     </div>
 </form>
+
+<!-- else, display notfound page -->
+<?php else : ?>
+<h1 style="color:red; text-align:center;">Not found</h1>
+<?php endif; ?>
