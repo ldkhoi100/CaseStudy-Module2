@@ -8,6 +8,7 @@ function admin()
     foreach ($result as $row) {
         if ($row['username'] == $_SESSION['username']) {
             $boolen = true;
+            break;
         } else {
             $boolen = false;
         }
