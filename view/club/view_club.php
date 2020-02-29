@@ -1,6 +1,5 @@
-<!-- acces login -->
-<?php include '../login/access.php';
-session_start();
+<?php session_start();
+include '../login/access.php';
 error_reporting(0);
 ?>
 <?php

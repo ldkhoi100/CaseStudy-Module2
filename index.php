@@ -1,8 +1,4 @@
-<!-- login required -->
-<?php include 'view/login/access.php';
-//echo accessIndex();
-session_start();
-?>
+<?php session_start(); ?>
 
 <!-- header -->
 <?php include './view/partials/header.php' ?>
@@ -14,5 +10,6 @@ session_start();
 
 <!-- Home view -->
 <?php include 'view/partials/galleryIndex.php' ?>
+
 <!-- footer -->
 <?php include './view/partials/footer.php' ?>

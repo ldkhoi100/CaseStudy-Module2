@@ -3,8 +3,7 @@
 
     <!-- logo -->
     <a class="navbar-brand" href="/index.php">
-        <img src="https://media0.giphy.com/media/3o7aDfC1PaFxz9TO8g/giphy.webp?cid=790b7611b1ee944fde7c69804ff39f5365f2ffb4861830ca&rid=giphy.webp"
-            alt="logo" style="width:40px;"></a>
+        <img src="/public/img/ball.webp" alt="logo" style="width:40px;"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
