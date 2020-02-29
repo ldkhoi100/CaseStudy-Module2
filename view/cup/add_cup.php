@@ -1,4 +1,3 @@
-<!-- If admin, you can edit file -->
 <?php if (admin()) : ?>
 
 <div class="col-12 col-md-12">
@@ -16,7 +15,8 @@
                 </div>
                 <div class="form-group">
                     <label>Name Cup</label>
-                    <input type="text" class="form-control" name="name_cup" placeholder="" required>
+                    <input type="text" class="form-control" name="name_cup" placeholder=""
+                        value="<?= isset($error) ? $cup->name : "" ?>" required>
                 </div>
                 <div class="form-group">
                     <label>Image</label>

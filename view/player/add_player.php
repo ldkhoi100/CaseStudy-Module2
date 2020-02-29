@@ -1,4 +1,3 @@
-<!-- If admin, you can edit file -->
 <?php if (admin()) : ?>
 
 <?php include '../../model/db/connect.php'; ?>
@@ -18,31 +17,37 @@
                 </div>
                 <div class="form-group">
                     <label>First Name</label>
-                    <input type="text" class="form-control" name="first_name" placeholder="" required>
+                    <input type="text" class="form-control" name="first_name"
+                        value="<?= isset($error) ? $player->firstname : "" ?>" placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label>Last Name</label>
-                    <input type="text" class="form-control" name="last_name" placeholder="" required>
+                    <input type="text" class="form-control" name="last_name"
+                        value="<?= isset($error) ? $player->lastname : "" ?>" placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label>Age</label>
                     <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;"
-                        class="form-control" name="age" placeholder="" required>
+                        class="form-control" name="age" placeholder="" value="<?= isset($error) ? $player->age : "" ?>"
+                        required>
                 </div>
                 <div class="form-group">
                     <label>Height</label>
                     <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;"
-                        class="form-control" name="height" placeholder="" required>
+                        class="form-control" name="height" placeholder=""
+                        value="<?= isset($error) ? $player->height : "" ?>" required>
                 </div>
                 <div class="form-group">
                     <label>Weight</label>
                     <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;"
-                        class="form-control" name="weight" placeholder="" required>
+                        class="form-control" name="weight" value="<?= isset($error) ? $player->weight : "" ?>"
+                        placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label>Clothers number</label>
                     <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;"
-                        class="form-control" name="clothers_number" placeholder="" required>
+                        class="form-control" name="clothers_number"
+                        value="<?= isset($error) ? $player->clothersnumber : "" ?>" placeholder="" required>
                 </div>
 
                 <!-- Select id club -->

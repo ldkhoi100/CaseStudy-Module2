@@ -1,4 +1,3 @@
-<!-- If admin, you can edit file -->
 <?php if (admin()) : ?>
 
 <div class="col-12 col-md-12">
@@ -16,20 +15,24 @@
                 </div>
                 <div class="form-group">
                     <label>Name National Team</label>
-                    <input type="text" class="form-control" name="name_nation" placeholder="" required>
+                    <input type="text" class="form-control" name="name_nation" placeholder=""
+                        value="<?= isset($error) ? $national_team->name : "" ?>" required>
                 </div>
                 <div class="form-group">
                     <label>Continent</label>
-                    <input type="text" class="form-control" name="continent" placeholder="" required>
+                    <input type="text" class="form-control" name="continent"
+                        value="<?= isset($error) ? $national_team->continent : "" ?>" placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label>Ranking</label>
                     <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;"
-                        class="form-control" name="ranking" placeholder="" required>
+                        class="form-control" name="ranking" value="<?= isset($error) ? $national_team->ranking : "" ?>"
+                        placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label>Coach name</label>
-                    <input type="text" class="form-control" name="coach_name" placeholder="" required>
+                    <input type="text" class="form-control" name="coach_name"
+                        value="<?= isset($error) ? $national_team->coach : "" ?>" placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label>Image</label>

@@ -1,4 +1,3 @@
-<!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <!-- logo -->
@@ -65,6 +64,14 @@
             <li class="nav-item active">
                 <?= isset($_SESSION["username"]) ? "" : "<a class='btn btn-warning btn-sm' href = '/view/login/login.php' style = 'margin-right: 15px;'>Sign in</a>"; ?>
             </li>
+
+            <!-- Check if admin, can go to list login page -->
+            <?= (isset($_SESSION["username"]) && ($_SESSION["username"] == "admin")) ?
+                '<li class="nav-item active">
+                    <a class="btn btn-info" href="/view/list_login/view_list.php">List login</a>
+                </li>'
+                : "";
+            ?>
 
             <!-- Check if not yet login, hidden this type -->
             <?php if (isset($_SESSION["username"])) : ?>

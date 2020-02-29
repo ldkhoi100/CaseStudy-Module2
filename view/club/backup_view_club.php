@@ -1,4 +1,3 @@
-<!-- If admin, you can edit file -->
 <?php if (admin()) : ?>
 
 <h2>List Club deleted</h2>

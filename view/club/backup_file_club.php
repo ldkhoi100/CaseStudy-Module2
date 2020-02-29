@@ -1,4 +1,3 @@
-<!-- If admin, you can edit file -->
 <?php if (admin()) : ?>
 
 <h1 style='color:red;'>Do you want back up club <?= isset($club->name) ? $club->name : ''; ?>?</h1> <br>

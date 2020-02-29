@@ -1,4 +1,3 @@
-<!-- If admin, you can edit file -->
 <?php if (admin()) : ?>
 
 <h1 style='color:red;'>Do you want delete player <?= isset($player->firstname) ? $player->firstname : ''; ?>

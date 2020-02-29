@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php
+session_start();
+?>
 
 <!-- header -->
 <?php include './view/partials/header.php' ?>

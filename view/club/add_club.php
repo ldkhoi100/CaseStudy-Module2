@@ -1,4 +1,3 @@
-<!-- If admin, you can edit file -->
 <?php if (admin()) : ?>
 
 <div class="col-12 col-md-12">
@@ -21,11 +20,13 @@
                 </div>
                 <div class="form-group">
                     <label>Stadium</label>
-                    <input type="text" class="form-control" name="stadium" placeholder="" required>
+                    <input type="text" class="form-control" name="stadium" placeholder=""
+                        value="<?= isset($error) ? $club->stadium : "" ?>" required>
                 </div>
                 <div class="form-group">
                     <label>Coach Name</label>
-                    <input type="text" class="form-control" name="coach_name" placeholder="" required>
+                    <input type="text" class="form-control" name="coach_name"
+                        value="<?= isset($error) ? $club->coach : "" ?>" placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label>Image</label>

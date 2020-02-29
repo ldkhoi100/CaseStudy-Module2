@@ -1,4 +1,3 @@
-<body>
     <script src="/public/js/time-sever.js"></script>
     <footer style="font-size: 14px;">
         <div class="footer-copyright text-center py-1">
@@ -9,6 +8,6 @@
             <?= "- " . date("d-m-Y", strtotime("+6 hours")) . "<br>"; ?>
         </div>
     </footer>
-</body>
+    </body>
 
-</html>
+    </html>
