@@ -3,10 +3,11 @@
 
 function admin()
 {
-    $sql = "SELECT * FROM users WHERE flag = true";
+    $boolen = true;
+    $sql = "SELECT * FROM users";
     $result = $GLOBALS["connect"]->query($sql);
     foreach ($result as $row) {
-        if ($row['username'] == $_SESSION['username']) {
+        if (($row['flag'] == true) && ($row['username'] == $_SESSION['username'])) {
             $boolen = true;
             break;
         } else {
