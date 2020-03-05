@@ -62,28 +62,24 @@
 
             <!-- Check, if logined, Go to dropdown user, else need to login -->
             <li class="nav-item active">
-                <?= isset($_SESSION["username"]) ? "" : "<a class='btn btn-warning btn-sm' href = '/view/login/login.php' style = 'margin-right: 15px;'>Sign in</a>"; ?>
+                <?= isset($_SESSION["username"]) ? "" : "<a class='nav-link' href = '/view/login/login.php' style = 'margin-right: 15px;'>Sign in</a>"; ?>
             </li>
-
-            <!-- Check if admin, can go to list login page -->
-            <?= (isset($_SESSION["username"]) && ($_SESSION["username"] == "admin")) ?
-                '<li class="nav-item active">
-                    <a class="btn btn-info" href="/view/list_login/view_list.php">List login</a>
-                </li>'
-                : "";
-            ?>
 
             <!-- Check if not yet login, hidden this type -->
             <?php if (isset($_SESSION["username"])) : ?>
 
             <li class="nav-item dropdown active" style="margin-right: 10px">
-                <a class=" nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    <?php //echo htmlspecialchars($_SESSION["username"]); 
-                        ?>
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                     <?= isset($_SESSION["username"]) ? htmlspecialchars($_SESSION["username"]) : ""; ?>
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/view/login/welcome.php">Detail</a>
+                    <!-- Check if admin, can go to manager list account page -->
+                    <?php if ((isset($_SESSION["username"]) && ($_SESSION["username"] == "admin"))) : ?>
+
+                    <a class="dropdown-item" href="/view/list_login/view_list.php">Manager Account</a>
+
+                    <?php endif; ?>
+
                     <a href="/view/login/reset-password.php" class="dropdown-item">Reset Password</a>
                     <div class="dropdown-divider"></div>
                     <a href="/view/login/logout.php" class="dropdown-item">Sign Out</a>

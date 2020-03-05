@@ -12,7 +12,13 @@
     <thead>
         <tr class="table-info">
             <th>Serial</th>
+
+            <?php if (admin()) : ?>
+
             <th>ID</th>
+
+            <?php endif; ?>
+
             <th>Name cup</th>
             <th>Image</th>
 
@@ -28,7 +34,13 @@
         <?php foreach ($cups as $key => $cup) : ?>
         <tr>
             <td><?php echo ++$key ?></td>
+
+            <?php if (admin()) : ?>
+
             <td><?php echo $cup->id ?></td>
+
+            <?php endif; ?>
+
             <td><?php echo $cup->name ?></td>
             <td><img class="zoom" src="<?= 'data:image;base64,' . base64_encode($cup->image) ?> " width="60px"
                     height="65px"> </td>

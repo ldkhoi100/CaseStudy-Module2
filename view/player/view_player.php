@@ -20,7 +20,7 @@ use Controller\PlayerController;
 <!-- css view -->
 <link rel="stylesheet" href="/public/css/view.css">
 
-<div class="container">
+<div>
     <div class="navbar navbar-default">
         <a class="navbar-brand" href="view_player.php">
             <h2>Home Player Management</h2>

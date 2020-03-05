@@ -1,4 +1,5 @@
-<?php 
+<?php include 'connect.php';
+
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";

@@ -7,21 +7,19 @@ use PDOException;
 
 class DBConnection
 {
-    public $dsn;
-    public $user;
-    public $password;
+    public const DB_HOST = 'localhost';
+    public const DB_NAME = 'football';
+    public const DB_USERNAME = 'root';
+    public const DB_PASSWORD = '';
 
-    public function __construct($dsn, $user, $password)
-    {
-        $this->dsn = $dsn;
-        $this->password = $password;
-        $this->user = $user;
-    }
+    public function __construct()
+    { }
 
     public function connect()
     {
         try {
-            return new PDO($this->dsn, $this->user, $this->password);
+            $connect = new PDO("mysql:host=" . self::DB_HOST . ";dbname=" . self::DB_NAME . ";charset=utf8", self::DB_USERNAME, self::DB_PASSWORD);
+            return $connect;
         } catch (PDOException $e) {
             die($e->getMessage());
         }

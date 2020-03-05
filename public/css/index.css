@@ -55,3 +55,7 @@ body{
   h3{
     color: red;
   }
+
+  footer{
+    max-height: 500px;
+  }

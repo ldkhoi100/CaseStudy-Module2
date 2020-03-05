@@ -3,7 +3,6 @@ include '../login/access.php';
 error_reporting(0);
 ?>
 <?php
-include '../../model/db/connect.php';
 require "../../model/core/DBConnection.php";
 require "../../model/club_league/clubleague.php";
 require "../../model/club_league/clubleagueDB.php";

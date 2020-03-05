@@ -1,4 +1,4 @@
-<h2>List Login</h2>
+<h2>List Account</h2>
 
 <table class="table table-hover">
     <thead>
@@ -18,7 +18,12 @@
             <td><?php echo $listlogin->username ?></td>
             <td>*****</td>
             <td><?php echo $listlogin->creatat ?></td>
-            <td><?php echo $listlogin->flag ?></td>
+            <?php if ($listlogin->flag == 1) : ?>
+            <td><?= 'Granted' ?></td>
+            <?php endif; ?>
+            <?php if ($listlogin->flag == 0) : ?>
+            <td><?= 'No access' ?></td>
+            <?php endif; ?>
             <td> <a href="view_list.php?page=grant&id=<?php echo $listlogin->id; ?>"
                     class="btn btn-warning btn-sm">Grant access</a></td>
             <td> <a href="view_list.php?page=revoke&id=<?php echo $listlogin->id; ?>"

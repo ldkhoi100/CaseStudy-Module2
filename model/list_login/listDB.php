@@ -26,7 +26,7 @@ class ListloginDB
 
     public function getAll()
     {
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM users WHERE id != 1";
         $statement = $this->connection->prepare($sql);
         $statement->execute();
         $result = $statement->fetchAll();

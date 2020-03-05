@@ -12,7 +12,13 @@
     <thead>
         <tr class="table-info">
             <th>Serial</th>
+
+            <?php if (admin()) : ?>
+
             <th>ID</th>
+
+            <?php endif; ?>
+
             <th>Name Club</th>
             <th>Stadium</th>
             <th>Coach Name</th>
@@ -28,7 +34,13 @@
         <?php foreach ($clubs as $key => $club) : ?>
         <tr>
             <td><?php echo ++$key ?></td>
+
+            <?php if (admin()) : ?>
+
             <td><?php echo $club->id ?></td>
+
+            <?php endif; ?>
+
             <td><?php echo $club->name ?></td>
             <td><?php echo $club->stadium ?></td>
             <td><?php echo $club->coach ?></td>
@@ -36,8 +48,7 @@
                     height="60px"> </td>
             </td>
 
-            <?php // Check if the admin is logged in, display button
-                if (admin()) : ?>
+            <?php if (admin()) : ?>
 
             <td> <a href="view_club.php?page=delete&id=<?php echo $club->id; ?>"
                     class="btn btn-warning btn-sm">Delete</a></td>

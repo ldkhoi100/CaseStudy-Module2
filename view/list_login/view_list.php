@@ -27,7 +27,7 @@ use Controller\ListloginController;
 <div class="container">
     <div class="navbar navbar-default">
         <a class="navbar-brand" href="view_list.php">
-            <h2>List Login Manager</h2>
+            <h2>Manager List Account</h2>
         </a>
     </div>
     <?php

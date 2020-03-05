@@ -12,7 +12,13 @@
     <thead>
         <tr class="table-info">
             <th>Serial</th>
+
+            <?php if (admin()) : ?>
+
             <th>ID</th>
+
+            <?php endif; ?>
+
             <th>Name Position</th>
 
             <!-- If admin, you can edit file -->
@@ -27,7 +33,13 @@
         <?php foreach ($cups as $key => $cup) : ?>
         <tr>
             <td><?php echo ++$key ?></td>
+
+            <?php if (admin()) : ?>
+
             <td><?php echo $cup->id ?></td>
+
+            <?php endif; ?>
+
             <td><?php echo $cup->name ?></td>
 
 

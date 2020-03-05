@@ -1,4 +1,5 @@
-<?php
+<?php include 'connect.php';
+
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
@@ -48,9 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
-
-                            // Redirect user to welcome page
-                            header("location: welcome.php");
+                            $success = "login success";
+                            // Redirect user to index page
+                            header("location: ../../index.php");
                         } else {
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";

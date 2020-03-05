@@ -12,7 +12,13 @@
     <thead>
         <tr class="table-info">
             <th>Serial</th>
+
+            <?php if (admin()) : ?>
+
             <th>ID</th>
+
+            <?php endif; ?>
+
             <th>Name League</th>
             <th>Image</th>
             <!-- If admin, you can edit file -->
@@ -27,7 +33,13 @@
         <?php foreach ($leagues as $key => $league) : ?>
         <tr>
             <td><?php echo ++$key ?></td>
+
+            <?php if (admin()) : ?>
+
             <td><?php echo $league->id ?></td>
+
+            <?php endif; ?>
+
             <td><?php echo $league->name ?></td>
             <td><img class="zoom" src="<?= 'data:image;base64,' . base64_encode($league->image) ?> " width="80px"
                     height="70px">

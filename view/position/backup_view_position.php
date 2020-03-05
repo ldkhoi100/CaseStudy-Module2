@@ -6,7 +6,6 @@
     <thead>
         <tr class="table-info">
             <th>Serial</th>
-            <th>ID</th>
             <th>Name Position</th>
             <th>Option</th>
             <th></th>
@@ -16,7 +15,6 @@
         <?php foreach ($cups as $key => $cup) : ?>
         <tr>
             <td><?php echo ++$key ?></td>
-            <td><?php echo $cup->id ?></td>
             <td><?php echo $cup->name ?></td>
             <td> <a href="view_position.php?page=backupfile&id=<?php echo $cup->id; ?>"
                     class="btn btn-warning btn-sm">Back

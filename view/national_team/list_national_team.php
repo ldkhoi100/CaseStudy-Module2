@@ -13,7 +13,13 @@
     <thead>
         <tr class="table-info">
             <th>Serial</th>
+
+            <?php if (admin()) : ?>
+
             <th>ID</th>
+
+            <?php endif; ?>
+
             <th>Name National Team</th>
             <th>Continent</th>
             <th>Ranking</th>
@@ -32,7 +38,13 @@
         <?php foreach ($national_teams as $key => $national_team) : ?>
         <tr>
             <td><?php echo ++$key ?></td>
+
+            <?php if (admin()) : ?>
+
             <td><?php echo $national_team->id ?></td>
+
+            <?php endif; ?>
+
             <td><?php echo $national_team->name ?></td>
             <td><?php echo $national_team->continent ?></td>
             <td><?php echo $national_team->ranking ?></td>

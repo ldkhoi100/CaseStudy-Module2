@@ -1,6 +1,6 @@
 <?php session_start();
 include '../login/access.php';
-error_reporting(0);
+//error_reporting(0);
 ?>
 <?php
 require "../../model/core/DBConnection.php";

@@ -13,8 +13,17 @@ class ClubleagueController
 
     public function __construct()
     {
-        $connection = new DBConnection("mysql:host=localhost;dbname=football; charset=utf8", "root", "");
+        $connection = new DBConnection();
         $this->clubleagueDB = new ClubleagueDB($connection->connect());
+        return $this->clubleagueDB;
+    }
+
+    public function selectClub($result)
+    {
+        foreach ($result as $row) {
+            echo "<option value=" . $row['id_club'] . ">" . $row['id_club'] . " - " . $row['name_club'] . "</option>";
+        }
+        include 'add_clubleague.php';
     }
 
     public function add()
@@ -26,7 +35,7 @@ class ClubleagueController
             $idleague = $_POST['id_league'];
             $clubleague = new Clubleague($idclub, $idleague);
             $this->clubleagueDB->create($clubleague);
-            $message = 'New club-league created';
+            $message = null;
             include 'add_clubleague.php';
         }
     }

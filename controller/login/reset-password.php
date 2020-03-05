@@ -1,4 +1,5 @@
-<?php
+<?php include 'connect.php';
+
 // Define variables and initialize with empty values
 $new_password = $confirm_password = "";
 $new_password_err = $confirm_password_err = "";
@@ -44,7 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Password updated successfully. Destroy the session, and redirect to login page
                 //session_destroy();
                 echo "<script type='text/javascript'>alert('Success');</script>";
-                header("location: welcome.php");
+                header("location: ../../index.php");
+                // header("location: welcome.php");
                 exit();
             } else {
                 echo "Oops! Something went wrong. Please try again later.";

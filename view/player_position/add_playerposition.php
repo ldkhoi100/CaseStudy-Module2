@@ -1,4 +1,13 @@
-<?php if (admin()) : ?>
+<?php
+
+use Model\DBConnection;
+
+if (admin()) : ?>
+
+<?php
+    $connect = new DBConnection();
+    $connect = $connect->connect();
+    ?>
 
 <?php include '../../model/db/connect.php' ?>
 

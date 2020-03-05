@@ -13,7 +13,13 @@
     <thead>
         <tr class="table-info" style="font-size: 13.5px;">
             <th>Serial</th>
+
+            <?php if (admin()) : ?>
+
             <th>ID</th>
+
+            <?php endif; ?>
+
             <th>First name</th>
             <th>Last name</th>
             <th>Age</th>
@@ -36,7 +42,13 @@
         <?php foreach ($players as $key => $player) : ?>
         <tr>
             <td><?php echo ++$key ?></td>
+
+            <?php if (admin()) : ?>
+
             <td><?php echo $player->id ?></td>
+
+            <?php endif; ?>
+
             <td><?php echo $player->firstname ?></td>
             <td><?php echo $player->lastname ?></td>
             <td><?php echo $player->age ?></td>

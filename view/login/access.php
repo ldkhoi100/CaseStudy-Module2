@@ -1,6 +1,5 @@
-<?php include '../../model/db/connect.php'; ?>
 <?php
-
+$connect = new PDO("mysql:host=localhost;dbname=football;charset=utf8", "root", "");
 function admin()
 {
     $boolen = true;
@@ -21,4 +20,3 @@ function boss()
 {
     return $_SESSION['username'] == 'admin';
 }
-?>

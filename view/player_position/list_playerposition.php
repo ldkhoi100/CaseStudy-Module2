@@ -13,7 +13,13 @@
         <thead>
             <tr class="table-info">
                 <th>Serial</th>
+
+                <?php if (admin()) : ?>
+
                 <th>ID Player</th>
+
+                <?php endif; ?>
+
                 <th>Name Player</th>
                 <th>Name Position</th>
 
@@ -29,7 +35,13 @@
             <?php foreach ($clubleagues as $key => $clubleague) : ?>
             <tr>
                 <td><?php echo ++$key ?></td>
+
+                <?php if (admin()) : ?>
+
                 <td><?php echo $clubleague->idclub ?></td>
+
+                <?php endif; ?>
+
                 <td><?php echo $clubleague->nameclub ?></td>
                 <td><?php echo $clubleague->nameleague ?></td>
 

@@ -5,10 +5,11 @@ namespace Controller;
 use function Couchbase\defaultDecoder;
 
 use Exception;
+use PDOException;
 use Model\Position;
 use Model\PositionDB;
 use Model\DBConnection;
-use PDOException;
+
 
 class PositionController
 {
@@ -17,7 +18,7 @@ class PositionController
 
     public function __construct()
     {
-        $connection = new DBConnection("mysql:host=localhost;dbname=football;charset=utf8", "root", "");
+        $connection = new DBConnection();
         $this->cupDB = new PositionDB($connection->connect());
     }
 

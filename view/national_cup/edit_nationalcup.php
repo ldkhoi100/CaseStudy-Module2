@@ -1,6 +1,13 @@
-<?php if (admin()) : ?>
+<?php
 
-<?php include '../../model/db/connect.php' ?>
+use Model\DBConnection;
+
+if (admin()) : ?>
+
+<?php
+    $connect = new DBConnection();
+    $connect = $connect->connect();
+    ?>
 
 <h2>Update Club Relationship Beetween National And Cup</h2>
 <form method="post" action="view_nationalcup.php?page=edit">

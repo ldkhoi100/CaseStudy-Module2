@@ -25,6 +25,13 @@ class ClubleagueDB
         $clubleague->idleague = $this->connection->lastInsertId();
     }
 
+    public function selectClub()
+    {
+        $sql = "SELECT * FROM club";
+        $result = $this->connection->query($sql);
+        return $result;
+    }
+
     public function update($id1, $id2, $clubleague)
     {
         $sql = "UPDATE club_league SET id_club = ?, id_league = ? WHERE id_club = ? AND id_league = ?";

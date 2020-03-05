@@ -6,8 +6,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-// Include connect file
-require_once "../../model/db/connect.php";
 include '../../controller/login/reset-password.php';
 ?>
 

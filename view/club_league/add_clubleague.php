@@ -1,6 +1,13 @@
-<?php if (admin()) : ?>
+<?php
 
-<?php include '../../model/db/connect.php' ?>
+use Model\DBConnection;
+
+if (admin()) : ?>
+
+<?php
+    $connect = new DBConnection();
+    $connect = $connect->connect();
+    ?>
 
 <div class="col-12 col-md-12">
     <div class="row">

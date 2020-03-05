@@ -14,7 +14,7 @@ class ClubController
 
     public function __construct()
     {
-        $connection = new DBConnection("mysql:host=localhost;dbname=football;charset=utf8", "root", "");
+        $connection = new DBConnection();
         $this->clubDB = new ClubDB($connection->connect());
     }
 

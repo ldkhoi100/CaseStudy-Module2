@@ -13,9 +13,21 @@
         <thead>
             <tr class="table-info">
                 <th>Serial</th>
+
+                <?php if (admin()) : ?>
+
                 <th>ID Nation</th>
+
+                <?php endif; ?>
+
                 <th>Name Nation</th>
+
+                <?php if (admin()) : ?>
+
                 <th>ID Cup</th>
+
+                <?php endif; ?>
+
                 <th>Name Cup</th>
 
                 <!-- If admin, you can edit file -->
@@ -30,9 +42,21 @@
             <?php foreach ($clubleagues as $key => $clubleague) : ?>
             <tr>
                 <td><?php echo ++$key ?></td>
+
+                <?php if (admin()) : ?>
+
                 <td><?php echo $clubleague->idclub ?></td>
+
+                <?php endif; ?>
+
                 <td><?php echo $clubleague->nameclub ?></td>
+
+                <?php if (admin()) : ?>
+
                 <td><?php echo $clubleague->idleague ?></td>
+
+                <?php endif; ?>
+
                 <td><?php echo $clubleague->nameleague ?></td>
 
                 <!-- If admin, you can edit file -->

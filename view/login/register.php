@@ -1,5 +1,4 @@
 <?php
-require_once "../../model/db/connect.php";
 include '../../controller/login/register.php';
 ?>
 
